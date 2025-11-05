@@ -1,7 +1,9 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
+#include "task.h"
+#include "window.cpp"
 
 int main() {
-
+    window win(800, 600, "Hello World");
+    win.run();
     return 0;
 }
