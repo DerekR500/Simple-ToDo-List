@@ -5,8 +5,10 @@ int main() {
     window win;
     task yuh;
     task whoo;
-    win.getList().addTask(yuh);
-    win.getList().addTask(whoo);
+    task dog("Take out the dog for a walk", 12252025, false);
+    win.todolist.addTask(yuh);
+    win.todolist.addTask(whoo);
+    win.todolist.addTask(dog);
     win.run();
 
     return 0;
