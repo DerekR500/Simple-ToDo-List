@@ -1,10 +1,10 @@
-//
-// Created by Derek on 11/5/2025.
-//
-
 #include "task.h"
 
-
+task::task() {
+    title = "deez";
+    deadline = 00000000;
+    complete = false;
+}
 task::task(std::string _title, int _deadline, bool _complete) {
     title = _title;
     deadline = _deadline;

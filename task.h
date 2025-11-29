@@ -1,6 +1,3 @@
-//
-// Created by Derek on 11/5/2025.
-//
 
 #ifndef TODO_TASK_H
 #define TODO_TASK_H
@@ -12,6 +9,7 @@ class task {
     int deadline;
     bool complete;
     public:
+    task();
     task(std::string _title, int _deadline, bool _complete);
     std::string getTitle();
     void setTitle(std::string newTitle);

@@ -1,9 +1,13 @@
-#include <iostream>
-#include "task.h"
 #include "window.cpp"
 
+
 int main() {
-    window win(800, 600, "Hello World");
+    window win;
+    task yuh;
+    task whoo;
+    win.getList().addTask(yuh);
+    win.getList().addTask(whoo);
     win.run();
+
     return 0;
 }
