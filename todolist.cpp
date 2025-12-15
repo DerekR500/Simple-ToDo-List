@@ -16,7 +16,9 @@ public:
         tasks.push_back(t);
     }
 
-    std::vector<task> getTasks() {
+    //i was passing by copy this whole time
+    //that's the only reason this wasn't working, no way.
+    std::vector<task>& getTasks() {
         return tasks;
     }
 };

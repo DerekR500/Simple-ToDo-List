@@ -1,4 +1,3 @@
-#include "SFML/Graphics.hpp"
 #include "todolist.cpp"
 #include <iostream>
 
@@ -31,7 +30,6 @@ class window {
     }
     void render() {
         win.clear(sf::Color::White);
-        //figure out how to display tasks
         displayTasks();
         displayTitle();
         win.display();
@@ -51,6 +49,8 @@ class window {
             if (todolist.getTasks()[i].getComplete() == 1) {
                 continue;
             }
+            task& t = todolist.getTasks()[i];
+            //making text for task and task deadlines
             sf::Text title(todolist.getTasks()[i].getTitle(), font);
             sf::Text deadline("Due by " + std::to_string(todolist.getTasks()[i].getDeadline()), font);
             deadline.setCharacterSize(15);
@@ -59,8 +59,12 @@ class window {
             title.setCharacterSize(30);
             title.setFillColor(sf::Color::Black);
             title.setPosition(100, (i * 60) + 100);
+            t.s_complete.setPosition(50, (i * 60) + 115);
+            t.s_delete.setPosition(900, (i * 60) + 115);
             win.draw(title);
             win.draw(deadline);
+            t.drawCom(win);
+            t.drawDel(win);
         }
     }
 
