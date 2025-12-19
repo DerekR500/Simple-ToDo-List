@@ -3,6 +3,7 @@
 
 class list {
     std::vector<task> tasks;
+    std::vector<task> completedTasks;
 public:
     void removeTask(task& t) {
         for (int i = 0; i < tasks.size(); i++) {
@@ -20,5 +21,8 @@ public:
     //that's the only reason this wasn't working, no way.
     std::vector<task>& getTasks() {
         return tasks;
+    }
+    std::vector<task>& getCompletedTasks() {
+        return completedTasks;
     }
 };

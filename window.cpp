@@ -24,7 +24,20 @@ class window {
             if (ev.type == sf::Event::Closed) {
                 win.close();
             }
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 
+                int x = ev.mouseButton.x;
+                int y = ev.mouseButton.y;
+                for (task& t : todolist.getTasks()) {
+                    if (t.s_complete.getGlobalBounds().contains(x, y)) {
+                        t.setComplete(true);
+                        todolist.getCompletedTasks().push_back(t);
+                    }
+                    if (t.s_delete.getGlobalBounds().contains(x, y)) {
+                        //delete task and add to deleted vector
+                    }
+                }
+            }
             //more stuff here
         }
     }
@@ -47,6 +60,7 @@ class window {
     void displayTasks() {
         for (int i = 0; i < todolist.getTasks().size(); i++) {
             if (todolist.getTasks()[i].getComplete() == 1) {
+                todolist.getTasks().erase(todolist.getTasks().begin() + i);
                 continue;
             }
             task& t = todolist.getTasks()[i];
