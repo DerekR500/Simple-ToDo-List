@@ -4,6 +4,7 @@
 class list {
     std::vector<task> tasks;
     std::vector<task> completedTasks;
+    std::vector<task> deletedTasks;
 public:
     void removeTask(task& t) {
         for (int i = 0; i < tasks.size(); i++) {
@@ -24,5 +25,8 @@ public:
     }
     std::vector<task>& getCompletedTasks() {
         return completedTasks;
+    }
+    std::vector<task>& getDeletedTasks() {
+        return deletedTasks;
     }
 };

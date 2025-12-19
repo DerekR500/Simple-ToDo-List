@@ -5,6 +5,7 @@ task::task() {
     title = "deez";
     deadline = 00000000;
     complete = false;
+    deleted = false;
     if (!t_complete.loadFromFile("check.png")) {
         return;
     }
@@ -14,10 +15,11 @@ task::task() {
     s_complete.setTexture(t_complete);
     s_delete.setTexture(t_delete);
 }
-task::task(std::string _title, int _deadline, bool _complete, std::string file_path1, std::string file_path2) {
+task::task(std::string _title, int _deadline, bool _complete, bool _deleted, std::string file_path1, std::string file_path2) {
     title = _title;
     deadline = _deadline;
     complete = _complete;
+    deleted = _deleted;
     if (!t_complete.loadFromFile(file_path1)) {
         return;
     }
@@ -44,6 +46,12 @@ bool task::getComplete() {
 }
 void task::setComplete(bool newComplete) {
     complete = newComplete;
+}
+bool task::getDeleted() {
+    return deleted;
+}
+void task::setDeleted(bool newDeleted) {
+    deleted = newDeleted;
 }
 void task::setComPosition(float x, float y) {
     s_complete.setPosition(x, y);

@@ -28,17 +28,19 @@ class window {
 
                 int x = ev.mouseButton.x;
                 int y = ev.mouseButton.y;
-                for (task& t : todolist.getTasks()) {
+                for (int i = 0; i < todolist.getTasks().size(); i++) {
+                    task& t = todolist.getTasks()[i];
                     if (t.s_complete.getGlobalBounds().contains(x, y)) {
                         t.setComplete(true);
                         todolist.getCompletedTasks().push_back(t);
                     }
                     if (t.s_delete.getGlobalBounds().contains(x, y)) {
                         //delete task and add to deleted vector
+                        t.setDeleted(true);
+                        todolist.getDeletedTasks().push_back(t);
                     }
                 }
             }
-            //more stuff here
         }
     }
     void render() {
@@ -59,7 +61,7 @@ class window {
     }
     void displayTasks() {
         for (int i = 0; i < todolist.getTasks().size(); i++) {
-            if (todolist.getTasks()[i].getComplete() == 1) {
+            if (todolist.getTasks()[i].getComplete() == 1 || todolist.getTasks()[i].getDeleted() == 1) {
                 todolist.getTasks().erase(todolist.getTasks().begin() + i);
                 continue;
             }

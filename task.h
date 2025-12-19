@@ -8,19 +8,21 @@
 class task {
     std::string title;
     int deadline;
-    bool complete;
+    bool complete, deleted;
 
     public:
     sf::Texture t_complete, t_delete;
     sf::Sprite s_complete, s_delete;
     task();
-    task(std::string _title, int _deadline, bool _complete, std::string file_path1, std::string file_path2);
+    task(std::string _title, int _deadline, bool _complete, bool _deleted, std::string file_path1, std::string file_path2);
     std::string getTitle();
     void setTitle(std::string newTitle);
     int getDeadline();
     void setDeadline(int newDeadline);
     bool getComplete();
     void setComplete(bool newComplete);
+    bool getDeleted();
+    void setDeleted(bool newDeleted);
     void setComPosition(float x, float y);
     void setDelPosition(float x, float y);
     void drawDel(sf::RenderWindow& win);
